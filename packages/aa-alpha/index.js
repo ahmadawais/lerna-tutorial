@@ -1,1 +1,1 @@
-module.exports = "aa-alpha";
+module.exports = "ALPHA";
