@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "lerna": "^2.7.0"
+  },
+  "name": "aa-lerna-tutorial",
+  "description":
+    "First off, What is `lerna`? `lerna` is a tool that allows you to maintain multiple `npm` packages within one repository.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

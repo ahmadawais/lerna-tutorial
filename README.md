@@ -14,10 +14,10 @@ Here's the gist:
 
 ## Getting started.
 
-For this demo I'm going to be using `lerna@2.0.0-beta.20`. [`lerna`](https://github.com/lerna/lerna) is a CLI (command line interface) tool. You're going to want to install it with the `--global` (`-g`) flag.
+For this demo I'm going to install [`lerna`](https://github.com/lerna/lerna) is a CLI (command line interface) tool. You're going to want to install it with the `--global` (`-g`) flag.
 
 ```
-npm i lerna@2.0.0-beta.20 -g
+npm i lerna -g
 ```
 
 Then once it's done installing your going to want to run the following
@@ -32,17 +32,17 @@ This will do a couple of things.
 * Updating package.json.
 * Creating lerna.json.
 
-The `/packages` folder is where all of your packages belong. Let's go about making a new package `alpha`.
+The `/packages` folder is where all of your packages belong. Let's go about making a new package `aa-alpha`.
 
 ```
 cd packages
-mkdir alpha
-cd alpha
+mkdir aa-alpha
+cd aa-alpha
 npm init -y
-echo "module.exports = 'alpha'" > index.js
+echo "module.exports = 'aa-alpha'" > index.js
 ```
 
-Lets go through the same steps for another package `beta`.
+Lets go through the same steps for another package `aa-beta`.
 
 First go up one directory:
 
@@ -50,16 +50,16 @@ First go up one directory:
 cd ..
 ```
 
-Now go about creating `beta`.
+Now go about creating `aa-beta`.
 
 ```
-mkdir beta
-cd beta
+mkdir aa-beta
+cd aa-beta
 npm init -y
-echo "module.exports = 'beta'" > index.js
+echo "module.exports = 'aa-beta'" > index.js
 ```
 
-Now we're going to create a `usage` package that uses both `alpha` and `beta` as dependencies.
+Now we're going to create a `usage` package that uses both `aa-alpha` and `aa-beta` as dependencies.
 
 First go up one directory:
 
@@ -79,9 +79,9 @@ touch index.js
 Open up `/packages/usage/index.js` in a text editor and paste this in.
 
 ```js
-var alpha = require('alpha')
-var beta = require('beta')
-console.log(alpha + " " + beta)
+var aa-alpha = require('aa-alpha')
+var aa-beta = require('aa-beta')
+console.log(aa-alpha + " " + aa-beta)
 ```
 
 We're almost there. At this point your whole project should look something like this:
@@ -92,10 +92,10 @@ We're almost there. At this point your whole project should look something like 
 ├── lerna.json
 ├── package.json
 └── packages
-    ├── alpha
+    ├── aa-alpha
     │   ├── index.js
     │   └── package.json
-    ├── beta
+    ├── aa-beta
     │   ├── index.js
     │   └── package.json
     └── usage
@@ -108,8 +108,8 @@ What you want to do now is go into `/packages/usage/package.json` and add these 
 ```json
 {
   "dependencies": {
-    "alpha": "1.0.0",
-    "beta": "1.0.0"  
+    "aa-alpha": "1.0.0",
+    "aa-beta": "1.0.0"
   }
 }
 ```
@@ -123,7 +123,7 @@ lerna bootstrap
 The output from this command should look something like this:
 
 ```
-Lerna v2.0.0-beta.20
+Lerna v2.0.0-aa-beta.20
 Linking all dependencies
 Successfully bootstrapped 3 packages.
 ```
@@ -136,32 +136,32 @@ Now using the `tree` command once more (`brew install tree`) we can see the fold
 ├── lerna.json
 ├── package.json
 └── packages
-    ├── alpha
+    ├── aa-alpha
     │   ├── index.js
     │   ├── node_modules
     │   └── package.json
-    ├── beta
+    ├── aa-beta
     │   ├── index.js
     │   ├── node_modules
     │   └── package.json
     └── usage
         ├── index.js
         ├── node_modules
-        │   ├── alpha
+        │   ├── aa-alpha
         │   │   ├── index.js
         │   │   └── package.json
-        │   └── beta
+        │   └── aa-beta
         │       ├── index.js
         │       └── package.json
         └── package.json
 ```
 
-It added two `stubbed` (my term not [`lerna`](https://github.com/lerna/lerna)'s) modules. If you peak inside `/packages/usage/node_modules/alpha/index.js` you can see what I mean.
+It added two `stubbed` (my term not [`lerna`](https://github.com/lerna/lerna)'s) modules. If you peak inside `/packages/usage/node_modules/aa-alpha/index.js` you can see what I mean.
 
-> contents of `./packages/usage/node_modules/alpha/index.js`
+> contents of `./packages/usage/node_modules/aa-alpha/index.js`
 
 ```js
-module.exports = require("/Users/thomas/Desktop/lerna-tutorial/packages/alpha");
+module.exports = require("/Users/user/Desktop/lerna-tutorial/packages/aa-alpha");
 ```
 
 > Note: This is an absolute path to the module. So if you ever move your lerna project you'll need to rerun `lerna bootstrap`.
@@ -169,6 +169,5 @@ module.exports = require("/Users/thomas/Desktop/lerna-tutorial/packages/alpha");
 And volia! When we run `node ./packages/usage/index.js` we get our expected output!
 
 ```
-alpha beta
+aa-alpha aa-beta
 ```
-# lerna-tutorial
