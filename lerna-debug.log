@@ -60,11 +60,13 @@
 35 verbose installed leaf aa-usage
 36 error execute callback with error
 37 error Error: Command failed: npm install
-37 error npm ERR! code E404
-37 error npm ERR! 404 Not Found: aa-beta@^0.0.1
+37 error npm ERR! code ETARGET
+37 error npm ERR! notarget No matching version found for aa-alpha@^0.0.1
+37 error npm ERR! notarget In most cases you or one of your dependencies are requesting
+37 error npm ERR! notarget a package version that doesn't exist.
 37 error
 37 error npm ERR! A complete log of this run can be found in:
-37 error npm ERR!     /Users/ahmadawais/.npm/_logs/2018-01-13T07_39_34_575Z-debug.log
+37 error npm ERR!     /Users/ahmadawais/.npm/_logs/2018-01-13T07_46_46_775Z-debug.log
 37 error
 37 error     at Promise.all.then.arr (/Users/ahmadawais/.nvm/versions/node/v9.1.0/lib/node_modules/lerna/node_modules/execa/index.js:236:11)
 37 error     at <anonymous>
