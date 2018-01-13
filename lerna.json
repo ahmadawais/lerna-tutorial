@@ -1,7 +1,9 @@
 {
   "lerna": "2.7.0",
   "version": "independent",
-  "packages": ["packages/*"],
+  "packages": [
+    "packages/*"
+  ],
   "changelog": {
     "repo": "ahmadawais/lerna-tutorial",
     "labels": {
