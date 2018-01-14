@@ -1,3 +1,23 @@
+
+<table width='100%'>
+    <tr>
+        <td align='left' width='100%' colspan='2'>
+            <strong>Lerna Tutorial</strong><br />
+            Learn how to create and mantain monorepos with lerna.
+        </td>
+    </tr>
+    <tr>
+        <td>
+            A FOSS (Free & Open Source Software) project. Maintained by <a href='https://github.com/ahmadawais'>@AhmadAwais</a>.
+        </td>
+        <td align='center'>
+            <a href='https://AhmadAwais.com/'>
+                <img src='https://i.imgur.com/Asg4d3k.png' width='100' />
+            </a>
+        </td>
+    </tr>
+</table>
+
 # Lerna tutorial
 
 First off, What is [`lerna`](https://github.com/lerna/lerna)? [`lerna`](https://github.com/lerna/lerna) is a tool that allows you to maintain multiple `npm` packages within one repository.
