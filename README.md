@@ -20,6 +20,8 @@
 
 # Lerna tutorial
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ahmadawais/lerna-tutorial.svg)](https://greenkeeper.io/)
+
 First off, What is [`lerna`](https://github.com/lerna/lerna)? [`lerna`](https://github.com/lerna/lerna) is a tool that allows you to maintain multiple `npm` packages within one repository.
 
 There's a couple of benefits to this kind of approach, the paradigm is called a `monorepo`, and more can be read about it from the [source of `babel`, and `react`](https://github.com/babel/babel/blob/master/doc/design/monorepo.md).
