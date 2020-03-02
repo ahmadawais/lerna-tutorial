@@ -81,9 +81,9 @@ touch index.js
 Open up `/packages/usage/index.js` in a text editor and paste this in.
 
 ```js
-var aa-alpha = require('aa-alpha')
-var aa-beta = require('aa-beta')
-console.log(aa-alpha + " " + aa-beta)
+var aaAlpha = require('aa-alpha')
+var aaBeta = require('aa-beta')
+console.log(aaAlpha + " " + aaBeta);
 ```
 
 We're almost there. At this point your whole project should look something like this:
@@ -125,12 +125,17 @@ lerna bootstrap
 The output from this command should look something like this:
 
 ```
-Lerna v2.0.0-aa-beta.20
-Linking all dependencies
-Successfully bootstrapped 3 packages.
+lerna info version 2.11.0
+lerna info Bootstrapping 3 packages
+lerna info lifecycle preinstall
+lerna info Symlinking packages and binaries
+lerna info lifecycle postinstall
+lerna info lifecycle prepublish
+lerna info lifecycle prepare
+lerna success Bootstrapped 3 packages
 ```
 
-Now using the `tree` command once more (`brew install tree`) we can see the folder structure we can see what [`lerna`](https://github.com/lerna/lerna) did.
+Now using the `tree` command once more (`brew install tree` or `sudo apt-get install tree`) we can see the folder structure we can see what [`lerna`](https://github.com/lerna/lerna) did.
 
 ```
 .
@@ -138,35 +143,21 @@ Now using the `tree` command once more (`brew install tree`) we can see the fold
 ├── lerna.json
 ├── package.json
 └── packages
-    ├── aa-alpha
-    │   ├── index.js
-    │   ├── node_modules
-    │   └── package.json
-    ├── aa-beta
-    │   ├── index.js
-    │   ├── node_modules
-    │   └── package.json
-    └── usage
-        ├── index.js
-        ├── node_modules
-        │   ├── aa-alpha
-        │   │   ├── index.js
-        │   │   └── package.json
-        │   └── aa-beta
-        │       ├── index.js
-        │       └── package.json
-        └── package.json
+    ├── aa-alpha
+    │   ├── index.js
+    │   └── package.json
+    ├── aa-beta
+    │   ├── index.js
+    │   └── package.json
+    └── usage
+        ├── index.js
+        ├── node_modules
+        │   ├── aa-alpha -> ../../aa-alpha
+        │   └── aa-beta -> ../../aa-beta
+        └── package.json
 ```
 
-It added two `stubbed` (my term not [`lerna`](https://github.com/lerna/lerna)'s) modules. If you peak inside `/packages/usage/node_modules/aa-alpha/index.js` you can see what I mean.
-
-> contents of `./packages/usage/node_modules/aa-alpha/index.js`
-
-```js
-module.exports = require("/Users/user/Desktop/lerna-tutorial/packages/aa-alpha");
-```
-
-> Note: This is an absolute path to the module. So if you ever move your lerna project you'll need to rerun `lerna bootstrap`.
+It added inside 'packages/usage/node_modules/' links to aa-alpha and aa-beta related dependencies.
 
 And volia! When we run `node ./packages/usage/index.js` we get our expected output!
 
