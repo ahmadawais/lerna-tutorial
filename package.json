@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "lerna": "^2.7.0"
+    "lerna": "^6.6.1"
   },
   "name": "aa-lerna-tutorial",
   "description": "First off, What is `lerna`? `lerna` is a tool that allows you to maintain multiple `npm` packages within one repository.",
